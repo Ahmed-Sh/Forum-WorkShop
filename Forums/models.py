@@ -10,8 +10,8 @@ class Members():
         self.age = input(b)
         print ("Name: {0} \nAge: {1}".format(self.name, self.age))
 
-    def get_member_data(self):
-        print ("Member name: {0} \nMember age: {1}".format(self.name,self.age))
+    def __str__(self):
+        return ("Member name: {0} \nMember age: {1}".format(self.name,self.age))
 
 class Posts():
     def __init__(self, title = None, content = None):
@@ -25,5 +25,5 @@ class Posts():
         self.content = input(b)
         print ("Post Title: {0} \nContents: {1}".format(self.title, self.content))
 
-    def get_contents(self):
-        print ("Post Title: {0} \nContents: {1}".format(self.title, self.content))
+    def __str__(self):
+        return ("Post Title: {0} \nContents: {1}".format(self.title, self.content))

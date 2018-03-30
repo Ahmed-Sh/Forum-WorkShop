@@ -5,52 +5,52 @@ class Atm():
         self.withdrawals_list = []
 
     def withdraw(self,request):
-        print "Welcome to {0} ".format(self.bank_name)
-        print "Current balance = {0} ".format(self.balance)
-        print "=" * 30
+        print ("Welcome to {0} ".format(self.bank_name))
+        print ("Current balance = {0} ".format(self.balance))
+        print ("=" * 30)
 
         if request > self.balance:
-            print "You don't have that much !!"
+            print ( "You don't have that much !!")
 
         elif request < 0:
-            print "Error , Wrong request !!!!!"
+            print ( "Error , Wrong request !!!!!")
 
         else:
             self.withdrawals_list.append(request)
             self.balance -= request
 
             while request >= 100:
-                print "give 100"
+                print ( "give 100")
                 request -= 100
 
             while request >= 50:
-                print "give 50"
+                print ( "give 50")
                 request -= 50
 
             while request >= 10:
-                print "give 10"
+                print ( "give 10")
                 request -= 10
 
             while request >= 5:
-                print "give 5"
+                print ( "give 5")
                 request -= 5
 
             while request < 5 and request > 0:
-                print "give " + str(request)
+                print ( "give " + str(request))
                 request -= request
                 break
 
-        print "=" * 30
+        print ( "=" * 30)
 
         return self.balance
 
     def show_withdrawals(self):
         for withdrawal in self.withdrawals_list:
-            print "Withdrawal No. %d = %d" % ((self.withdrawals_list.index(withdrawal)+1),withdrawal)
+            print ( "Withdrawal No. %d = %d" % ((self.withdrawals_list.index(withdrawal)+1),withdrawal))
 
-        print "Total withdrawal =",sum(self.withdrawals_list)
-        print "Your balance now =",self.balance
-        print "=" * 30
+        print ( "Total withdrawal =",sum(self.withdrawals_list))
+        print ( "Your balance now =",self.balance)
+        print ( "=" * 30)
 
 balance1 = 500
 balance2 = 1000
