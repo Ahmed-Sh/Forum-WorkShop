@@ -16,7 +16,7 @@ class MemberStore:
         return MemberStore.members
 
 
-    def get_by_id(self,id):
+    def get_by_id(self, id):
         all_members = self.get_all()
         result = None
         for member in all_members:
@@ -24,6 +24,19 @@ class MemberStore:
                 result = member
                 break
         return result
+
+
+    def entity_exists(self, member):
+        result = True
+        if self.get_by_id(member.id) == None:
+            result = False
+        return result
+
+    def delete(self, id):
+        if self.get_by_id(id):
+            MemberStore.members.remove(self.get_by_id(id))
+        else:
+            print("This Id doesn't exist !!!")
 
 
 class PostsStore:
@@ -38,7 +51,7 @@ class PostsStore:
     def get_all(self):
         return PostsStore.posts
 
-    def get_by_id(self,id):
+    def get_by_id(self, id):
         all_posts = self.get_all()
         result = None
         for post in all_posts:
@@ -46,3 +59,18 @@ class PostsStore:
                 result = post
                 break
         return result
+
+
+    def entity_exists(self, post):
+        result = True
+        if self.get_by_id(post.id) == None:
+            result = False
+        return result
+
+    def delete(self, id):
+        if self.get_by_id(id):
+            PostsStore.posts.remove(self.get_by_id(id))
+        else:
+            print("This Id doesn't exist !!!")
+
+
