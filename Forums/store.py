@@ -11,10 +11,18 @@ class MemberStore:
             member.id = MemberStore.last_id
             MemberStore.last_id += 1
 
-
     def get_all(self):
         return MemberStore.members
 
+    def get_by_name(self, name):
+        all_members = self.get_all()
+        result = None
+        for member in all_members:
+            answer = []
+            if member.name == name:
+                answer.append(member)
+                result = answer
+        return result
 
     def get_by_id(self, id):
         all_members = self.get_all()
@@ -25,12 +33,20 @@ class MemberStore:
                 break
         return result
 
-
     def entity_exists(self, member):
         result = True
-        if self.get_by_id(member.id) == None:
+        if self.get_by_id(member.id) is None:
             result = False
         return result
+
+    def update(self, member):
+        all_members = self.get_all()
+        if member in all_members:
+            member.name = input("Enter your Name: ")
+            member.age = int(input("Enter Your Age: "))
+        return member
+
+
 
     def delete(self, id):
         if self.get_by_id(id):
@@ -60,10 +76,9 @@ class PostsStore:
                 break
         return result
 
-
     def entity_exists(self, post):
         result = True
-        if self.get_by_id(post.id) == None:
+        if self.get_by_id(post.id) is None:
             result = False
         return result
 
@@ -72,5 +87,3 @@ class PostsStore:
             PostsStore.posts.remove(self.get_by_id(id))
         else:
             print("This Id doesn't exist !!!")
-
-

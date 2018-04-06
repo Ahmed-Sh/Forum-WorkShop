@@ -12,7 +12,7 @@ class Members():
         print ("Name: {0} \nAge: {1}".format(self.name, self.age))
 
     def __str__(self):
-        return ("Member name: {0} \nMember age: {1} \nMember Id: {2}".format(self.name,self.age,self.id))
+        return ("Member name: {0} \nMember age: {1} \nMember Id: {2}".format(self.name, self.age, self.id))
 
 class Posts():
     def __init__(self, title = None, content = None):
