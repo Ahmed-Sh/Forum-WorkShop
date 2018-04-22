@@ -49,11 +49,9 @@ class MemberStore:
 
 
     def delete(self, id):
-        if self.get_by_id(id):
-            MemberStore.members.remove(self.get_by_id(id))
-        else:
-            print("This Id doesn't exist !!!")
-
+        member =  self.get_by_id(id)
+        MemberStore.members.remove(member)
+        
 
 class PostsStore:
     posts = []
