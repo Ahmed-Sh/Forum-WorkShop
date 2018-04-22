@@ -33,6 +33,7 @@ def get_by_id_should_retrieve_same_object(member_store, member2):
     member2_retrieved = member_store.get_by_id(member2.id)
     if member2 is member2_retrieved:
         print("member2 and member2_retrieved are matching !")
+    print("=" * 30)
 
 def update_should_modify_object(member_store, member4):
     member4_copy = models.Members(member4.name, member4.age)
@@ -43,6 +44,7 @@ def update_should_modify_object(member_store, member4):
     member4_copy.name = "john"
     member_store.update(member4_copy)
     print(member_store.get_by_id(member4.id))
+    print("=" * 30)
 
 def catch_exception_when_deleting():
     try:
@@ -63,7 +65,7 @@ print_all_members(member_store)
 
 get_by_id_should_retrieve_same_object(member_store, member2)
 
-#update_should_modify_object(member_store, yaser)
+update_should_modify_object(member_store, member4)
 
 catch_exception_when_deleting()
 
@@ -73,7 +75,7 @@ post_1 = models.Posts("Python", "Python is a nice language to learn.")
 post_2 = models.Posts("Math", "Math is always fun :)")
 post_3 = models.Posts("Happiness", "Hope to achieve it in the afterlife.")
 
-
+'''
 try:
     print(member_store.entity_exists(ali))
 except NameError:
@@ -88,4 +90,4 @@ print("\n")
 print(posts_store.get_by_id(2))
 print(posts_store.get_by_id(5))
 print(posts_store.entity_exists(post_2))
-print("\n")
+print("\n")'''

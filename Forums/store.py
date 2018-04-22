@@ -40,18 +40,19 @@ class MemberStore:
         return result
 
     def update(self, member):
+        result = member
         all_members = self.get_all()
-        if member in all_members:
-            member.name = input("Enter your Name: ")
-            member.age = int(input("Enter Your Age: "))
-        return member
 
+        for index, current_member in enumerate(all_members):
+            if current_member.id == member.id:
+                all_members[index] = member
 
+        return result
 
     def delete(self, id):
         member =  self.get_by_id(id)
         MemberStore.members.remove(member)
-        
+
 
 class PostsStore:
     posts = []
