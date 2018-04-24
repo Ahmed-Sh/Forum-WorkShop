@@ -14,7 +14,7 @@ class Members():
     def __str__(self):
         return ("Member name: {0} \nMember age: {1} \nMember Id: {2}".format(self.name, self.age, self.id))
 
-class Posts():
+class Post():
     def __init__(self, title = None, content = None):
         self.title = title
         self.content = content

@@ -15,14 +15,7 @@ class MemberStore:
         return MemberStore.members
 
     def get_by_name(self, name):
-        all_members = self.get_all()
-        result = None
-        for member in all_members:
-            answer = []
-            if member.name == name:
-                answer.append(member)
-                result = answer
-        return result
+        return (member for member in self.get_all() if member.name == name)
 
     def get_by_id(self, id):
         all_members = self.get_all()
@@ -46,7 +39,7 @@ class MemberStore:
         for index, current_member in enumerate(all_members):
             if current_member.id == member.id:
                 all_members[index] = member
-
+                break
         return result
 
     def delete(self, id):
