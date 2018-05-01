@@ -1,3 +1,5 @@
+import itertools, copy
+
 class MemberStore:
     members = []
     last_id = 1
@@ -46,6 +48,23 @@ class MemberStore:
         member =  self.get_by_id(id)
         MemberStore.members.remove(member)
 
+    def get_members_with_posts(self, all_posts):
+        all_members = copy.deepcopy(self.get_all())
+
+        for member, post in itertools.product(all_members, all_posts):
+            if member.id is post.member_id:
+                member.posts.append(post)
+
+        for member in all_members :
+            yield member
+
+    def get_top_two(self, all_posts):
+        members_with_posts = list(self.get_members_with_posts(all_posts))
+
+        members_with_posts.sort(key=lambda member: len(member.posts), reverse=True)
+
+        yield members_with_posts[0]
+        yield members_with_posts[1]
 
 class PostsStore:
     posts = []
@@ -79,3 +98,6 @@ class PostsStore:
             PostsStore.posts.remove(self.get_by_id(id))
         else:
             print("This Id doesn't exist !!!")
+
+
+

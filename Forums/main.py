@@ -2,9 +2,9 @@ import models
 import store
 
 def create_members():
-    member1 = models.Member("Mohammed", 20)
-    member2 = models.Member("Mohammed", 22)
-    member3 = models.Member("Abdo", 25)
+    member1 = models.Members("Mohammed", 20)
+    member2 = models.Members("Mohammed", 22)
+    member3 = models.Members("Abdo", 25)
     print(member1)
     print(member2)
     print(member3)
@@ -40,7 +40,7 @@ def get_by_id_should_retrieve_same_object(member_store, member2):
     print("=" * 30)
 
 def update_should_modify_object(member_store, member3):
-    member3_copy = models.Member(member3.name, member3.age)
+    member3_copy = models.Members(member3.name, member3.age)
     member3_copy.id = 3
 
     if member3_copy is not member3:
@@ -146,4 +146,3 @@ store_should_add_posts(posts_instances, post_store)
 store_should_get_members_with_posts(member_store, post_store)
 
 store_should_get_top_two(member_store, post_store)
-
