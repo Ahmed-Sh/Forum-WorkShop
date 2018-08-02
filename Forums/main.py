@@ -1,5 +1,5 @@
 import models
-import store
+import stores
 
 def create_members():
     member1 = models.Members("Mohammed", 20)
@@ -18,8 +18,8 @@ def store_should_add_members(members_instances, member_store):
         member_store.add(member)
 
 def stores_should_be_similar():
-    member_store1 = store.MemberStore()
-    member_store2 = store.MemberStore()
+    member_store1 = stores.MemberStore()
+    member_store2 = stores.MemberStore()
     if member_store1.get_all() is member_store2.get_all():
         print("Same stores elements !")
 
@@ -116,7 +116,7 @@ def store_should_get_top_two(member_store, post_store):
 members_instances = create_members()
 member1, member2, member3 = members_instances
 
-member_store = store.MemberStore()
+member_store = stores.MemberStore()
 
 store_should_add_members(members_instances, member_store)
 
@@ -139,7 +139,7 @@ store_should_get_members_by_name(member_store)
 posts_instances = create_posts(members_instances)
 post1, post2, post3, post4, post5, post6, post7, post8, post9 = posts_instances
 
-post_store = store.PostsStore()
+post_store = stores.PostsStore()
 
 store_should_add_posts(posts_instances, post_store)
 

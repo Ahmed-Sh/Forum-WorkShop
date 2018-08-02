@@ -62,7 +62,7 @@ class MemberStore(BaseStore):
         all_members = copy.deepcopy(self.get_all())
 
         for member, post in itertools.product(all_members, all_posts):
-            if member.id is post.member_id:
+            if member.id == post.member_id:
                 member.posts.append(post)
 
         for member in all_members :
@@ -88,4 +88,3 @@ class PostsStore(BaseStore):
         all_posts = self.get_all()
         all_posts.sort(key=lambda post: post.date, reverse=True)
         return (post for post in all_posts)
-        
