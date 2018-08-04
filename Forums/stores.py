@@ -88,3 +88,9 @@ class PostsStore(BaseStore):
         all_posts = self.get_all()
         all_posts.sort(key=lambda post: post.date, reverse=True)
         return (post for post in all_posts)
+
+    def get_by_name(self, title):
+        all_posts = self.get_all()
+        for post in all_posts:
+            if post.title == title:
+                yield post
