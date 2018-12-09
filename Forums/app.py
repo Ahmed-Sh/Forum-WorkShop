@@ -9,6 +9,7 @@ app = Flask(__name__)
 def home():
     posts = post_store.get_all()
     return render_template("index.html", posts=posts)
+    #red posts is the one we handle in html
 
 
 app.run()
