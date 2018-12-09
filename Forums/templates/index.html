@@ -13,12 +13,14 @@
     <main>
       <h2><a href="#">Member profile</a></h2>
       <hr>
-      <button class="button" type="button" name="button">Create</button>
+      <a href="{{ url_for("topic_add") }}">Create New Topic</a>
+      <br><br>
       <table>
         <tr>
           <th>Title</th>
           <th>Edit</th>
           <th>Delete</th>
+          <th>Date</th>
         </tr>
         <tr>
           {% for post in posts %}
@@ -26,6 +28,7 @@
             <td>{{post.title}}</td>
             <td><button>edit</button></td>
             <td><button>delete</button></td>
+            <td>{{post.date}}</td>
           </tr>
           {% endfor %}
       </table>
